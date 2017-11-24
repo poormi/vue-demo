@@ -1,0 +1,16 @@
+.Wdate{
+	border:#999 1px solid;
+	height:20px;
+	background:#fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAMAAAAhxq8pAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURUxpcf6YBJvzO8wAAAABdFJOUwBA5thmAAAAKUlEQVQYGWNgoB9ghAMkO+FijEiCDDBRZDEGqCiqGEQUXQwkiilGBxEAHn4AKej/fw4AAAAASUVORK5CYII=) no-repeat right;
+}
+
+.Wdate.open{
+	border:#fd9704 1px solid;
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAMAAAAhxq8pAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURUxpcf+ZBIMqYLoAAAABdFJOUwBA5thmAAAAJ0lEQVQYGWNgoC9gZMS0jxEI0EVBYuiiEDFUUZgYiihWQXQbaMMHABmSACku2trmAAAAAElFTkSuQmCC);
+}
+.Wdate::-ms-clear{display:none;}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}
