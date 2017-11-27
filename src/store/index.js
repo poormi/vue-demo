@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {
   fetchItem
-} from './api.js'
+} from '../util/api.js'
 
 import childStore from './modules/profile.js'
 Vue.use(Vuex)

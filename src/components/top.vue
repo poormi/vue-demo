@@ -24,21 +24,18 @@
 			return {
 			}
 		},
-		computed: Object.assign({			
-			
-			},mapGetters({
+		computed: {
+			...mapGetters({
 				userName: 'currentUser',
 				menus: 'getMenus',
 				logoutUrl: 'logoutUrl',
 				user: 'getUser'
 			})
-		),
+		},
 		methods: {
 			isActive (url) {
 				return this.$route.path.indexOf(url) + 1
 			}
-		},
-		watch:{
 		},
         beforeMount(){
             this.$store.dispatch('fetchUserName', 'user')
