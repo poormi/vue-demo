@@ -50,9 +50,9 @@ module.exports = {
       }
     }, {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: 'css-loader?sourceMap!sass-loader?sourceMap'
+      use: ExtractTextPlugin.extract({
+        fallback: 'vue-style-loader',
+        use: 'css-loader?minimize!sass-loader?sourceMap'
       }),
       include: path.join(__dirname, '../assets')
     }]

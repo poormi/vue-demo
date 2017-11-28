@@ -7,6 +7,7 @@ const HTMLPlugin = require('html-webpack-plugin')
 // so it's applied on initial render
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 const config = Object.assign({}, base, {
   plugins: base.plugins.concat([
@@ -25,7 +26,8 @@ const config = Object.assign({}, base, {
     new HTMLPlugin({
       template: 'index.template.html',
       inject: true,
-    })
+    }),
+    new VueSSRClientPlugin()
   ])
 })
 
