@@ -1,9 +1,9 @@
 <template>
 	<div class="tab-buttons">
 		<ul>
-			<li :key="index" :name="`yy_${item.label}`" :class="{'on': picked == item.value}" key="index" v-for="(item,index) in items" @click="handleClick(item,index)">
-				<input :id="`hd-${index}`" type="radio" :value="item.value" name="t-btns" v-model="picked">
-				<label :for="`hd-${index}`">{{item.label}}</label>
+			<li :name="`yy_${item.label}`" :class="{'on': picked == item.value}" key="index" v-for="(item,index) in items" @click="handleClick(item,index)">
+				<input :id="sid | guid(item.value)" type="radio" :value="item.value" name="t-btns" v-model="picked">
+				<label :for="sid | guid(item.value)">{{item.label}}</label>
 			</li>
 			<i class="bar" :style="barStyle"></i>
 		</ul>
@@ -13,22 +13,43 @@
 	<script>
 		export default {
 			nam: 'TabButton',
+			model: {
+				prop: 'checked',
+				event: 'change'
+			},
 			data() {
 				return {
 					items: this.data,
 					picked: this.data.length && this.data[0].value,
-					barStyle: ''
+					barStyle: '',
+					sid: Math.random().toString(36).substr(2,5)
 				}
 			},
 			props: {
-				data:{
+				data: {
 					type: Array,
 					default: []
+				},
+				checked: {
+					type: String,
+					default: '0'
+				}
+			},
+			filters: {
+				guid(name,sid) {
+					return `${name}-${sid}`
 				}
 			},
 			methods: {
 				handleClick(item,index){
-					this.barStyle = { transform: `translate3d(${index*90}px, 0, 0)`}
+					this.barStyle = { 
+						transform: `translate3d(${index*90}px, 0, 0)`
+					}
+				}
+			},
+			watch: {
+				picked(val){
+					this.$emit('change', val)
 				}
 			}
 		}
