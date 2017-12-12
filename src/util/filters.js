@@ -38,3 +38,10 @@ export const hex2Rgb = (hex) => {
         return hexChange.join(",")
     }
 }
+
+export const replaceFormatter = (str, args) => {
+    const pattern = /\{(\d+)\}/g
+    return str.replace(pattern, (key, index) => {
+        return args[index]
+    })
+}
